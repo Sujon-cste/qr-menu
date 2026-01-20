@@ -1,17 +1,14 @@
 const mysql = require("mysql2/promise");
 
-const pool = mysql.createPool({
-    //develop
-    // host: "localhost",
-    // user: "qruser",
-    // password: "strongpassword",
-    // database: "qr_menu",
+// const pool = mysql.createPool({
+//     //develop
+//     host: "localhost",
+//     user: "qruser",
+//     password: "strongpassword",
+//     database: "qr_menu",
+// });
 //live
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
-    port: process.env.MYSQLPORT,
-});
-
+const pool = mysql.createPool(
+    "mysql://root:aYDHyZkrXBjIuDbryADKUoXDJGLPxUYN@turntable.proxy.rlwy.net:22111/railway"
+);
 module.exports = pool;
