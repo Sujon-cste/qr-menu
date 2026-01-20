@@ -37,7 +37,7 @@ exports.register = async (req, res) => {
 
         // create user
         const [userResult] = await pool.query(
-            "INSERT INTO users (email, password) VALUES (?, ?)",
+            "INSERT INTO users (email, password_hash) VALUES (?, ?)",
             [email, hashed]
         );
 
@@ -80,7 +80,7 @@ exports.login = async (req, res) => {
 
         const user = rows[0];
 
-        const ok = await bcrypt.compare(password, user.password);
+        const ok = await bcrypt.compare(password, user.password_hash);
         if (!ok) {
             return res.status(400).json({ message: "Invalid credentials" });
         }
