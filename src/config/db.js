@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     //develop
     host: "localhost",
     user: "qruser",
-    password: "strongpassword",
+    password: "StrongPassword123!",
     database: "qr_menu",
 });
 //live
